@@ -113,7 +113,7 @@ function renderCatalog() {
             <div class="card-bottom-wrap">
                 <div class="card-bottom">
                     <span class="card-price">${formatRupiah(p.harga)}</span>
-                    <span class="card-stock" style="color: ${p.stok <= 5 ? '#B91C1C' : '#57534E'}">Stok: ${p.stok}</span>
+                    <span class="card-stock" style="color: ${p.stok <= 5 ? 'var(--color-danger)' : 'var(--text-muted)'}">Stok: ${p.stok}</span>
                 </div>
                 <button class="btn-add-cart" data-kode="${p.kode}" ${outOfStock ? "disabled" : ""}>
                     ${outOfStock ? "Habis" : "+ Tambah Pesanan"}
@@ -390,7 +390,7 @@ function renderCrudTable() {
     });
 
     if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" class="text-center" style="padding: 20px; color: #78716C;">Tidak ada produk.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center" style="padding: 24px; color: var(--text-muted);">Tidak ada produk yang cocok.</td></tr>`;
         return;
     }
 
@@ -400,8 +400,8 @@ function renderCrudTable() {
             <td><strong>${p.kode}</strong></td>
             <td>${p.kategori}</td>
             <td>${p.nama}</td>
-            <td class="text-right">${formatRupiah(p.harga)}</td>
-            <td class="text-right" style="font-weight: 700; color: ${p.stok <= 5 ? '#B91C1C' : '#1C1917'}">${p.stok}</td>
+            <td class="text-right font-mono">${formatRupiah(p.harga)}</td>
+            <td class="text-right font-mono" style="font-weight: 700; color: ${p.stok <= 5 ? 'var(--color-danger)' : 'var(--text-primary)'}">${p.stok}</td>
             <td>${p.info}</td>
             <td class="text-center">
                 <div class="action-btn-row">
@@ -482,19 +482,19 @@ function renderHistoryTable() {
     tbody.innerHTML = "";
 
     if (historyList.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" class="text-center" style="padding: 24px; color: #78716C;">Belum ada riwayat transaksi.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center" style="padding: 28px; color: var(--text-muted);">Belum ada riwayat transaksi penjualan.</td></tr>`;
         return;
     }
 
     historyList.forEach((t, idx) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-            <td><strong>${t.nota}</strong></td>
-            <td>${t.waktu}</td>
+            <td><strong class="font-mono">${t.nota}</strong></td>
+            <td style="color: var(--text-secondary);">${t.waktu}</td>
             <td>${t.itemCount} Item</td>
-            <td class="text-right">${formatRupiah(t.subtotal)}</td>
-            <td class="text-right" style="color: #047857; font-weight: 700;">-${formatRupiah(t.diskon)}</td>
-            <td class="text-right" style="font-weight: 800;">${formatRupiah(t.grandTotal)}</td>
+            <td class="text-right font-mono">${formatRupiah(t.subtotal)}</td>
+            <td class="text-right font-mono" style="color: var(--color-success); font-weight: 700;">-${formatRupiah(t.diskon)}</td>
+            <td class="text-right font-mono" style="font-weight: 800; color: var(--text-primary);">${formatRupiah(t.grandTotal)}</td>
             <td class="text-center">
                 <button class="btn-tbl-edit" data-idx="${idx}">Buka Struk</button>
             </td>
