@@ -1,0 +1,25 @@
+# Byte-code & Class files
+bin/
+target/
+*.class
+
+# Package files
+*.war
+*.ear
+*.nar
+
+# Virtual machines / OS specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Log files
+*.log
+
+# IDE specific settings
+.idea/
+*.iml
+.vscode/
+nbproject/private/
+build/
+dist/

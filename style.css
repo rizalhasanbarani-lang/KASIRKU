@@ -1,0 +1,857 @@
+/* =========================================================
+   KASIR KEDAI POS KOPI - STYLING (ANTISLOP-UI COMPLIANT)
+   Palette: Warm Stone Neutral, Deep Roasted Amber, Emerald Accent
+   ========================================================= */
+
+:root {
+    --bg-base: #F7F5F0;
+    --bg-surface: #FFFFFF;
+    --bg-surface-subtle: #F1EFEA;
+    
+    --border-color: #E2DDD5;
+    --border-strong: #CBC4B8;
+
+    --text-primary: #1C1917;
+    --text-secondary: #57534E;
+    --text-muted: #78716C;
+    --text-inverse: #FFFFFF;
+
+    --brand-dark: #78350F;
+    --brand-primary: #92400E;
+    --brand-light: #FEF3C7;
+
+    --color-success: #047857;
+    --color-success-hover: #065F46;
+    
+    --color-danger: #B91C1C;
+    --color-danger-hover: #991B1B;
+    --color-danger-subtle: #FEE2E2;
+
+    --color-info: #1D4ED8;
+    --color-info-hover: #1E40AF;
+
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+
+    --shadow-subtle: 0 1px 3px rgba(28, 25, 23, 0.06), 0 1px 2px rgba(28, 25, 23, 0.04);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= HEADER UTAMA ================= */
+.app-header {
+    background-color: #1C1917; /* Deep Espresso */
+    color: var(--text-inverse);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--brand-primary);
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.brand-text h1 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+
+.brand-text p {
+    font-size: 0.8rem;
+    color: #D6D3D1;
+}
+
+.header-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cashier-badge {
+    background: #292524;
+    border: 1px solid #44403C;
+    color: #E7E5E4;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+.clock-badge {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 0.85rem;
+    color: #FBBF24;
+    font-weight: 700;
+    background: #292524;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #44403C;
+}
+
+/* ================= NAVIGASI TAB ================= */
+.app-nav {
+    background: var(--bg-surface);
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 20px;
+    gap: 4px;
+}
+
+.nav-tab {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.nav-tab:hover {
+    color: var(--text-primary);
+}
+
+.nav-tab.active {
+    color: var(--brand-primary);
+    border-bottom-color: var(--brand-primary);
+}
+
+/* ================= CONTAINER UTAMA ================= */
+.app-container {
+    flex: 1;
+    padding: 16px 20px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ================= TAB 1: POS LAYOUT ================= */
+.pos-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 16px;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .pos-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Katalog Kolom */
+.catalog-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.catalog-header {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 220px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: var(--brand-primary);
+}
+
+.category-filters {
+    display: flex;
+    gap: 6px;
+}
+
+.filter-pill {
+    background: var(--bg-surface-subtle);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.filter-pill:hover {
+    border-color: var(--text-muted);
+}
+
+.filter-pill.active {
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+    border-color: var(--brand-dark);
+}
+
+/* Grid Kartu Produk */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 12px;
+}
+
+.product-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    box-shadow: var(--shadow-subtle);
+    transition: border-color 0.15s, transform 0.1s;
+}
+
+.product-card:hover {
+    border-color: var(--brand-primary);
+}
+
+.card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-category-badge {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.badge-food {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.badge-tool {
+    background: #E0E7FF;
+    color: #3730A3;
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+.card-info {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.card-bottom {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-price {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--brand-primary);
+}
+
+.card-stock {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.btn-add-cart {
+    width: 100%;
+    margin-top: 10px;
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+    border: 1px solid var(--brand-dark);
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-add-cart:hover {
+    background: var(--brand-dark);
+}
+
+.btn-add-cart:disabled {
+    background: #E5E7EB;
+    color: #9CA3AF;
+    border-color: #D1D5DB;
+    cursor: not-allowed;
+}
+
+/* Kolom Checkout & Keranjang */
+.checkout-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.checkout-header h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.nota-number {
+    font-size: 0.75rem;
+    font-family: "Consolas", monospace;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.btn-clear-cart {
+    background: transparent;
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.btn-clear-cart:hover {
+    background: var(--color-danger-subtle);
+}
+
+/* Container Item Keranjang */
+.cart-items-container {
+    max-height: 280px;
+    overflow-y: auto;
+    margin: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px 10px;
+    color: var(--text-muted);
+}
+
+.empty-state p {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.empty-state span {
+    font-size: 0.8rem;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.cart-item-info {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.cart-item-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.cart-item-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.cart-item-discount {
+    font-size: 0.72rem;
+    color: var(--color-success);
+    font-weight: 700;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.qty-btn {
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-surface-subtle);
+    font-weight: 800;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.qty-btn:hover {
+    background: #E7E5E4;
+}
+
+.qty-val {
+    font-size: 0.85rem;
+    font-weight: 700;
+    width: 24px;
+    text-align: center;
+}
+
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: var(--color-danger);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+/* Checkout Summary */
+.checkout-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.discount-row {
+    color: var(--color-success);
+    font-weight: 700;
+}
+
+.grand-total-row {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--brand-dark);
+    padding: 6px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.payment-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.payment-input-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.payment-input-group input {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 1rem;
+    font-weight: 800;
+    border: 2px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    text-align: right;
+    outline: none;
+}
+
+.payment-input-group input:focus {
+    border-color: var(--brand-primary);
+}
+
+.quick-cash-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.btn-quick-cash {
+    background: var(--bg-surface-subtle);
+    border: 1px solid var(--border-strong);
+    padding: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.btn-quick-cash:hover {
+    background: #E7E5E4;
+}
+
+.change-row {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-success);
+    padding-top: 4px;
+}
+
+.change-row.negative {
+    color: var(--color-danger);
+}
+
+.btn-checkout {
+    background: var(--color-success);
+    color: var(--text-inverse);
+    border: 1px solid var(--color-success-hover);
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 800;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: var(--shadow-subtle);
+    transition: background 0.15s;
+}
+
+.btn-checkout:hover {
+    background: var(--color-success-hover);
+}
+
+/* ================= TAB 2: CRUD LAYOUT ================= */
+.crud-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .crud-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.crud-form-card, .crud-table-card, .history-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.crud-form-card h2, .table-card-header h2, .history-header h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.form-group input, .form-group select {
+    padding: 8px 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--brand-primary);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.btn-primary {
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+    border: 1px solid var(--brand-dark);
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    flex: 1;
+}
+
+.btn-primary:hover {
+    background: var(--brand-dark);
+}
+
+.btn-secondary {
+    background: var(--bg-surface-subtle);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #E7E5E4;
+}
+
+/* Tabel CRUD & Riwayat */
+.table-card-header, .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.table-card-header input {
+    padding: 6px 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    width: 220px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.data-table th, .data-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.data-table th {
+    background: var(--bg-surface-subtle);
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.data-table tr:hover {
+    background: #FAF8F5;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.action-btn-row {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+.btn-tbl-edit {
+    background: var(--color-info);
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-tbl-del {
+    background: var(--color-danger);
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ================= MODAL STRUK ================= */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(28, 25, 23, 0.75);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.modal-backdrop.show {
+    display: flex;
+}
+
+.receipt-dialog {
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.receipt-header-bar {
+    background: #1C1917;
+    color: #fff;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receipt-header-bar h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.btn-close-modal {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.receipt-paper {
+    background: #FFFFFF;
+    padding: 20px 24px;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.receipt-paper pre {
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #1C1917;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.receipt-footer-bar {
+    background: var(--bg-surface-subtle);
+    padding: 12px 16px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Print Only Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .receipt-paper, .receipt-paper * {
+        visibility: visible;
+    }
+    .receipt-paper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
